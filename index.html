@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		githud的使用
+试ssh key是否成功，使用命令“ssh -T git@github.com”
+如果出现You’ve successfully authenticated, but GitHub does not provide shell access 。这就表示已成功连上github。
+设置贡献者
+配置本地提交的用户名和密码（可略）
+git config --global user.email "你提交分支的时候提交记录里显示的用户邮箱"
+git config --global user.name "提交分支的时候提交记录里显示的用户名"
+git config --global user.name 查看用户邮箱
+
+git config --list  查看所有配置项
+
+在本地创建一个文件夹
+通过命令
+     cd c:    进入文件目录
+     cd ..    退后目录
+     复制快捷键：ctr + insert     粘贴快捷键：shift + insert
+git的三个区
+工作区
+暂存区
+作为过渡层
+避免误操作
+保护工作区和版本区
+分支处理
+版本区（库）
+git status(工作区与暂存区的状态)
+git add
+name
+.
+git commit
+-mpus
+工作区直接到版本库简写 git commit -a -m "注释"
+
+git log(版本库的状态)add
+查看历史记录
+Git命令
+对比
+git diff   （查看工作区与暂存区的改动）
+git diff --cached(--staged)  （查看暂存区与版本区的改动）
+git diff master （查看工作区与版本区的改动）
+撤销
+git reset HEAD <file.name>（暂存区撤销到工作区）
+git checkout <file.name>  （工作区代码还原暂存区或版本区）
+如果有2个以上文件，一个提交到版本库了，另一个忘记提交，可以先将另一个文件拉到缓存区，然后通过
+git commit -m “注释”--amend 撤销回来，最后自动一次性提交暂存区中的文件，git log查看是否提交成功
+Git命令
+删除（提交工作区文件到暂存区）
+git rm <file.name>  (工作区手动删除之后也想删除暂存区)
+git rm -f <file.name> (删除工作区及暂存区的文件)
+git rm --cached <file.name>(只删除暂存区，不删除工作区)
+恢复
+git checkout 历史记录编码（git log获取） 文件名（要恢复的文件名）   指定的文件还原。
+git reset --hard  id号 历史记录编码     还原整个版本
+git reset --hard HEAD^   回滚版本记录 
+ 输出第一次为最近的记录，第二次就是倒数第二个历史记
+git reset --hard HEAD~2  回滚倒数第三个历史记录 （跳过了2个）
+git reflog    快速查看历史版本记录，方便回滚
+
+同步到远程仓库
+git remote     (查看远程仓库的名字)
+git remote -v  (查看远程仓库对应的地址)
+git remote add 创建仓库的名字
+git push origin master （将版本库中的文件提交到远程仓库）
+设置多人开发者权限 ：
+
+多人协作解决冲突
+
+    http://www.cnblogs.com/BeginMan/p/3548139.html（切换账户帖子）ssh -T git@github.com
+ 如果在push的时候，出现了冲突
+git fetch（将远程文件拉下来）
+git diff master origin/master(查看冲突)
+git merge  origin/master(将2个文件的不同显示到页面，人为判断选取哪个)
+解决完之后再进行push
+git pull（直接拉取）
+
+
+cd d:              // 进入哪个盘
+cd 文件夹名 // 进入文件夹
+git clone  "url"   //拉取远程厂库
+cd 文件夹名 // 进入远程厂库文件夹（出现master）
+在工作区进行操作
+git add 文件名 //把工作区文件拉到暂存区
+git commit -m '注释'  //把暂存区文件拉到版本库
+git status    //查看工作区和暂存区状态
+git log       //版本库状态
+	</body>
+</html>
